@@ -23,3 +23,12 @@ DTITLE = "24 hours top losers and winners"
 
 # Calling the function above with the 24 hours period series and title DTITLE  
 fig, ax = top10_subplot(volatility.percent_change_24h,DTITLE)
+
+
+# Sorting in ascending order
+volatility7d = volatility.sort_values('percent_change_7d')
+
+WTITLE = "Weekly top losers and winners"
+
+# Calling the top10_subplot function
+fig, ax = top10_subplot(volatility7d.percent_change_7d,WTITLE)
