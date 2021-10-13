@@ -1,0 +1,9 @@
+Discard the cryptocurrencies without a market capitalization
+Why do the count() for id and market_cap_usd differ above? It is because some cryptocurrencies listed in coinmarketcap.com have no known market capitalization, this is represented by NaN in the data, and NaNs are not counted by count(). These cryptocurrencies are of little interest to us in this analysis, so they are safe to remove.
+In [38]:
+
+# Filtering out rows without a market capitalization
+cap = market_cap_raw.query('market_cap_usd >0')
+​
+# Counting the number of values again
+print(cap.count())
